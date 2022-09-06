@@ -1,6 +1,9 @@
 import React from "react";
 import { createContext } from "react";
 
+export const languageContext = createContext();
+
+
 const translations = [
   {
     language: "English",
@@ -23,8 +26,16 @@ const translations = [
     },
   },
 ];
+const changeLanguage = (lang) => {
+  console.log(lang);
+};
 
 function LanguageProvider({ children }) {
-  return <>{props.children}</>;
+  return (
+    <languageContext.Provider value={changeLanguage}>
+      {children}
+    </languageContext.Provider>
+  );
 }
+
 export { LanguageProvider };

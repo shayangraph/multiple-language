@@ -1,11 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React,{useContext} from "react";
+import useLanguage from './context'
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 export default function Navbar() {
+  const {languageContext} = useLanguage("")
+  const {changeLanguage} = useContext(languageContext)
+  setLangClick("test is the")
   return (
     <ul className="nav nav-tabs">
       <li className="nav-item">
@@ -46,7 +50,7 @@ export default function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="#"  onClick={()=>changeLanguage("usehook")}>
               English
             </a>
           </li>
