@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 export default function Navbar() {
-  const { changeLanguage, words } = useLanguage("hello","farsi");
+  const { changeLanguage, words } = useLanguage();
   return (
     <ul className="nav nav-tabs">
       <li className="nav-item">

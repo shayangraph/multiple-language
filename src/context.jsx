@@ -3,7 +3,6 @@ import { createContext,useState } from "react";
 
 const languageContext = createContext();
 
-export const languageContext = createContext();
 
 
 const translations = [
