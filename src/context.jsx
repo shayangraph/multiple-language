@@ -33,7 +33,6 @@ const changeLanguage = (lang) => {
 };
 
 function LanguageProvider({ children }) {
-<<<<<<< HEAD
   console.log(translations.language.words);
   const [language, setlanguage] = useState("English")
   
@@ -47,13 +46,3 @@ const useLanguage=()=>{
   return{ changeLanguage,words}
 }
 export { LanguageProvider,useLanguage };
-=======
-  return (
-    <languageContext.Provider value={changeLanguage}>
-      {children}
-    </languageContext.Provider>
-  );
-}
-
-export { LanguageProvider };
->>>>>>> 4509b234c4853fd3359ee8582e476de1d1370b51
