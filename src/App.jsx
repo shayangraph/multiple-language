@@ -1,8 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
+import {LanguageProvider} from "./context";
 
 export default function App() {
   return (
-    <Navbar />
+    <LanguageProvider>
+      <Navbar />
+    </LanguageProvider>
   );
 }

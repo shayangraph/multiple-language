@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import {useLanguage} from './context';
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 export default function Navbar() {
+  const { changeLanguage, words } = useLanguage("hello","farsi");
   return (
     <ul className="nav nav-tabs">
       <li className="nav-item">
@@ -41,7 +43,7 @@ export default function Navbar() {
         </a>
         <ul className="dropdown-menu">
           <li className="nav-item">
-            <a className="dropdown-item" href="#">
+            <a className="dropdown-item" href="#" onClick={()=>changeLanguage("farsi")}>
               فارسی
             </a>
           </li>

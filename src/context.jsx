@@ -1,5 +1,7 @@
 import React from "react";
-import { createContext } from "react";
+import { createContext,useState } from "react";
+
+const languageContext = createContext();
 
 const translations = [
   {
@@ -25,6 +27,16 @@ const translations = [
 ];
 
 function LanguageProvider({ children }) {
-  return <>{props.children}</>;
+  console.log(translations.language.words);
+  const [language, setlanguage] = useState("English")
+  
+  const changeLanguage=()=>{
+
+  }
+  return <languageContext.Provider value={{changeLanguage,language}}>{children}</languageContext.Provider>;
 }
-export { LanguageProvider };
+const useLanguage=()=>{
+
+  return{ changeLanguage,words}
+}
+export { LanguageProvider,useLanguage };
