@@ -1,9 +1,7 @@
 import React from "react";
-import { createContext,useState } from "react";
+import { createContext, useState } from "react";
 
-const languageContext = createContext();
-
-
+export const LanguageContext = createContext();
 
 const translations = [
   {
@@ -27,21 +25,25 @@ const translations = [
     },
   },
 ];
-const changeLanguage = (lang) => {
-  console.log(lang);
-};
 
 function LanguageProvider({ children }) {
-  console.log(translations.language.words);
-  const [language, setlanguage] = useState("English")
-  
-  const changeLanguage=()=>{
+  const [language, setlanguage] = useState("english");
 
+  const changeLanguage = (lang) => {
+    setlanguage(lang);
+  };
+  return (
+    <LanguageContext.Provider value={{ changeLanguage, translations,language }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+const useLanguage = () => {
+  const context = React.useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
-  return <languageContext.Provider value={{changeLanguage,language}}>{children}</languageContext.Provider>;
-}
-const useLanguage=()=>{
+  return context;
+};
 
-  return{ changeLanguage,words}
-}
-export { LanguageProvider,useLanguage };
+export { LanguageProvider, useLanguage };
