@@ -1,5 +1,7 @@
 import React from "react";
-import { createContext } from "react";
+import { createContext, useState, useContext } from "react";
+
+export const LanguageContext = createContext();
 
 const translations = [
   {
@@ -24,36 +26,7 @@ const translations = [
   },
 ];
 
-const LanguageContext = createContext(undefined);
-
-function LanguageProvider(props) {
-  const [language, setLanguage] = React.useState(translations[0].language);
-
-  const changeLanguage = (lang) => {
-    setLanguage(lang);
-  };
-
-  const words = translations.find((t) => t.language === language).words;
-
-  return (
-    <LanguageContext.Provider
-      value={{
-        language,
-        changeLanguage,
-        words,
-      }}
-    >
-      {props.children}
-    </LanguageContext.Provider>
-  );
+function LanguageProvider({ children }) {
+  return <>{props.children}</>;
 }
-
-const useLanguage = () => {
-  const context = React.useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
-};
-
-export { LanguageProvider, useLanguage };
+export { LanguageProvider };

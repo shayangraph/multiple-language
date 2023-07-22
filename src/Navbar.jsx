@@ -6,31 +6,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 export default function Navbar() {
-  const { changeLanguage, words } = useLanguage();
-
-  const handleLanguageChange = (value) => {
-    changeLanguage(value);
-  };
   return (
     <ul className="nav nav-tabs">
       <li className="nav-item">
         <a className="nav-link" href="#">
-          {words.home}
+          Home
         </a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="#">
-          {words.events}
+          Events
         </a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="#">
-          {words.aboutUs}
+          About Us
         </a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="#">
-          {words.contactUs}
+          Contact Us
         </a>
       </li>
 
@@ -42,24 +37,16 @@ export default function Navbar() {
           aria-expanded="false"
           data-bs-toggle="dropdown"
         >
-          {words.language}
+          Language
         </a>
         <ul className="dropdown-menu">
           <li className="nav-item">
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={handleLanguageChange("Persian")}
-            >
+            <a className="dropdown-item" href="#">
               فارسی
             </a>
           </li>
           <li className="nav-item">
-            <a
-              className="dropdown-item"
-              href="#"
-              onClick={handleLanguageChange("English")}
-            >
+            <a className="dropdown-item" href="#">
               English
             </a>
           </li>
